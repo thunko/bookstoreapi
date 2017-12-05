@@ -1,0 +1,21 @@
+{
+	first_name:"John",
+	last_name: "Doe",
+	memberships: ["mem1", "mem2"],
+	address:{
+			street:"4 main st",
+			city:"Boston"
+	}
+	contacts:[
+			{name:"Brad", relationship:"friend"},
+	]
+}
+
+start mongodb:
+mongod --directoryperdb --dbpath C:\mongodb\data\db --logpath C:\mongodb\log\mongo.log --logappend --rest --install
+
+net start MongoDB
+
+stop mongodb:
+use admin
+db.shutdownServer()

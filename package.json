@@ -1,0 +1,16 @@
+{
+  "name": "bookstoreapi",
+  "version": "1.0.0",
+  "description": "simple bookstore app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "mongoose": "^4.10.8"
+  },
+  "author": "Jonathan Berrios",
+  "license": "ISC"
+}
