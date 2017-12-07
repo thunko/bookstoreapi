@@ -24,7 +24,7 @@ app.get('/', function(req, res){
 
 //GET http request
 app.get('/', (req, res) => {
-	res.send('Please use /api/books or /api/genres');
+	res.send('Welcome to BookStore <br> Please use /api/books or /api/genres');
 });
 
 app.get('/api/genres', function(req, res){

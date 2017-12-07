@@ -1,0 +1,143 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Untitled Document.md</title><script type="text/javascript">
+//<![CDATA[
+window.__cfRocketOptions = {byc:0,p:0,petok:"38d5d61ad4e777c97b43b53f91cb01da528a25dd-1512689263-1800"};
+//]]>
+</script>
+<script type="text/javascript" src="https://ajax.cloudflare.com/cdn-cgi/scripts/9014afdb/cloudflare-static/rocket.min.js"></script>
+<style></style></head><body id="preview">
+<h1><a id="LAB_03_Programming_Cloud_Services__REST_API_0"></a>LAB 03: Programming Cloud Services - REST API</h1>
+<p>Author:</p>
+<ul>
+<li>Jonathan BERRIOS, <a href="/cdn-cgi/l/email-protection#4a25202b2f2823677d0a393e3f2e2f243e64263e3f64392f"><span class="__cf_email__" data-cfemail="82ede8e3e7e0ebafb5c2f1f6f7e6e7ecf6aceef6f7acf1e7">[email&#160;protected]</span></a></li>
+</ul>
+<p>This document can be viewed in HTML rendered form <a href="https://htmlpreview.github.com/?https://github.com/thunko/bookstoreapi">here</a>.</p>
+<h2><a id="Table_of_contents_10"></a>Table of contents</h2>
+<ul>
+<li><a href="#2-quiestion">2 Question</a></li>
+<li><a href="#3-exercises">3 Exercises</a>
+<ul>
+<li><a href="#service-description">Service Description</a></li>
+<li><a href="#create-restful-api">Create a RESTful API</a>
+<ul>
+<li><a href="#api-routes">API Routes</a></li>
+<li><a href="#api-tests">API Tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="#references">References</a></li>
+</ul>
+<h2><a id="2_Question_20"></a>2 Question</h2>
+<blockquote>
+<p>What are microservices? Describe in detail the pros and cons of microservices architecture by giving examples.</p>
+</blockquote>
+<p>Pros</p>
+<p>Technology Heterogeneity</p>
+<p>It is possible to build a system with different techonlogies used. In this way, the developer can use the prefered tool, such in the project for this Lab, instead of selecting a standarized approach, one technology for the whole implementation.</p>
+<p>Resilience</p>
+<p>The services stand for their own. If in the system, one of them fail, the rest can continue working. It is not the case for a monolithic service.<br>
+With microservices, the total failure of a system will be handled accordingly with the granular functionalities of it.</p>
+<p>Scaling</p>
+<p>As per the granular nature of microservices, it allows scaling only to the services needed. This is prefered instead of having the need to scale the whole system when only a small part requires the scaling.</p>
+<p>Ease of Deployment</p>
+<p>It allows to make changes entailing considerably less risk in terms of issues arising. In the same tame, as it is granular per service, should a problem occur, it can be easier to trace and rollback if needed. Thus, it allows easier deployment in comparison to a monolithic application, in which a whole application release needs to be deployed for a small change.</p>
+<p>Composability</p>
+<p>It encourages the re-use of functionalities in various ways and purposes.</p>
+<p>Optimizing for Replaceability</p>
+<p>It is more practical with individual services being small in size, the cost to replace it with a better implementation, or to delete them altogether, it is easier to manage in comparison with a bigger one scale service.</p>
+<p>Cons</p>
+<p>As it very adaptative to handle many techologies, it also drags the associated complexities of distributed systems. For an actual deployment, it can take longer to be actually familiar with the many technologies handled.</p>
+<h2><a id="3_Exercises_55"></a>3 Exercises</h2>
+<h3><a id="Service_Description_57"></a>Service Description</h3>
+<blockquote>
+<p>In this exercise, you will learn how to develop a simple RESTful API for the application of your choice.</p>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>Use microservices as an architectural paradigm to design a simple service (one component only). Describe and document that service.</li>
+</ol>
+</blockquote>
+<p>In this exercise, a REST APIs is implemented for a Bookstore catalog. The database called Bookstore has 2 collections (or tables), book and genre.<br>
+book handles the following data:<br>
+-title<br>
+-genre<br>
+-description<br>
+-author<br>
+-publisher<br>
+-pages<br>
+-image_url<br>
+-buy_url<br>
+-create_date<br>
+genre handles the following data:<br>
+-name<br>
+-create_date</p>
+<p>The API implemented is RESTful CRUD (Create, Retrieve, Update, Delete) and Node.js, Express and MongoDB were used to deploy. Mongoose was used to interface with the MongoDB database.</p>
+<p>As this lab is intended to show the API functionality, a MongoDB instance was created in the localhost an accessed via CMD.</p>
+<p>For the web framework, Express for node.js is used as there is many information to use among the community.<br>
+Express is built on top of node.js http module, and support functionalities for routing, middleware, view system and so on.</p>
+<p>For the DB handling, Mongoose was used based on the same criteria of information available. It is an ODM (Object Document Mapping) tool for Node.js and MongoDB. It translates the objects in the code into documents in the DB and vice-versa.</p>
+<p>For ease of use <strong>RESTeasy</strong> app in Google Chrome is used.</p>
+<h3><a id="Create_a_RESTful_API_90"></a>Create a RESTful API</h3>
+<blockquote>
+<p>Your RESTful API should implement atleast two verbs, for example GET and POST. For GET, you should implement atleast one path.</p>
+</blockquote>
+<h4><a id="API_routes_94"></a>API routes</h4>
+<p>The API routes implemented are the following:</p>
+<p>For users:</p>
+<pre><code class="language-console">http://localhost:3000/
+</code></pre>
+<p>This will retrieve a welcome message followed by the working routes</p>
+<p><strong>GET:</strong></p>
+<pre><code class="language-console">/api/genres or /api/books
+/api/books/&lt;id&gt;
+</code></pre>
+<p>first route Will retrieve an array of JSON objects with the fields determined for the book or a genre object.<br>
+secind route Will retrieve an specific JSON object with the ID requested with its according fields.</p>
+<p><strong>POST:</strong></p>
+<pre><code class="language-console">/api/genres or /api/books
+</code></pre>
+<p>Before inserting strucutred data, it is necessary to set <em>Headers</em> in <strong>RESTeasy</strong> to <em>Content Type</em> and value <em>application/json</em></p>
+<p>when inserted the complete route into <code>URL</code> section in <code>RESTeasy</code> which would be <code>http://localhost:3000/api/books</code>, you need to insert the requested structured data into the <code>Body</code>.<br>
+If one of the fields is not filled, it will be filled with null.<br>
+After sending, an <strong>OK</strong> will be returned and the data will be <em>posted</em>.</p>
+<p><strong>PUT:</strong></p>
+<pre><code class="language-console">/api/genres/&lt;id&gt; or /api/books/&lt;id&gt;
+</code></pre>
+<p>A returned <strong>OK</strong> will be retrieved when an existing id is given as a parameter and a new data set is inserted to replace for the object with that <strong>ID</strong>.</p>
+<p><strong>DELETE:</strong></p>
+<pre><code class="language-console">/api/genres/&lt;id&gt; or /api/books/&lt;id&gt;
+</code></pre>
+<p>After selecting <code>DELETE</code> option in <code>RESTeasy</code>, and by giving the <strong>ID</strong>, the desired object will be deleted.<br>
+An <strong>OK</strong> is returned after a successfull message.</p>
+<h4><a id="API_tests_144"></a>API tests</h4>
+<p>Screenshots inserted for validation.</p>
+<p>&lt;!–<br>
+<strong>GET:</strong></p>
+<p>&lt;p align=“center”&gt;<br>
+&lt;img alt=“up-eu-west-1.png” src=&quot;<a href="https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png">https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png</a>&quot;&gt;<br>
+&lt;/p&gt;</p>
+<p>&lt;p align=“center”&gt;<br>
+&lt;img alt=“up-eu-west-1.png” src=&quot;<a href="https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png">https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png</a>&quot;&gt;<br>
+&lt;/p&gt;</p>
+<p><strong>POST:</strong></p>
+<p>&lt;p align=“center”&gt;<br>
+&lt;img alt=“up-eu-west-1.png” src=&quot;<a href="https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png">https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png</a>&quot;&gt;<br>
+&lt;/p&gt;</p>
+<p><strong>PUT:</strong></p>
+<p>&lt;p align=“center”&gt;<br>
+&lt;img alt=“up-eu-west-1.png” src=&quot;<a href="https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png">https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png</a>&quot;&gt;<br>
+&lt;/p&gt;</p>
+<p><strong>DELETE:</strong></p>
+<p>&lt;p align=“center”&gt;<br>
+&lt;img alt=“up-eu-west-1.png” src=&quot;<a href="https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png">https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png</a>&quot;&gt;<br>
+&lt;/p&gt;</p>
+<p>–&gt;</p>
+<h2><a id="References_179"></a>References</h2>
+<ol>
+<li>Sam Newman in: Building Microservices: Designing Fine-Grained Systems 1st Edition from<br>
+<a href="https://stackoverflow.com/questions/34903605/microservices-what-are-pros-and-cons/34904942">https://stackoverflow.com/questions/34903605/microservices-what-are-pros-and-cons/34904942</a></li>
+</ol>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/af2821b0/cloudflare-static/email-decode.min.js"></script></body></html>
