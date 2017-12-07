@@ -6,7 +6,7 @@ Author:
 
 This document can be viewed in HTML rendered form [here].
 
-[here]: https://github.com/thunko/bookstoreapi/blob/master/README.html
+[here]: http://htmlpreview.github.com?https://github.com/thunko/bookstoreapi/blob/master/README.html
 
 ## Table of contents
 
@@ -153,29 +153,40 @@ Screenshots inserted for validation.
   <img alt="get-books.png" src="https://github.com/thunko/bookstoreapi/blob/master/get-books.PNG?raw=true">
 </p>
 
-<!--
+
 <p align="center">
-  <img alt="up-eu-west-1.png" src="https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png">
+  <img alt="get-books-id.png" src="https://github.com/thunko/bookstoreapi/blob/master/get-books-id.PNG?raw=true">
 </p>
 
 **POST:**
 
 <p align="center">
-  <img alt="up-eu-west-1.png" src="https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png">
+  <img alt="post-book-structure.png" src="https://github.com/thunko/bookstoreapi/blob/master/post-book-structure.PNG?raw=true">
+</p>
+
+<p align="center">
+  <img alt="post-book-ok.png" src="https://github.com/thunko/bookstoreapi/blob/master/post-book-ok.PNG?raw=true">
 </p>
 
 **PUT:**
 
 <p align="center">
-  <img alt="up-eu-west-1.png" src="https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png">
+  <img alt="put-book-structure.png" src="https://github.com/thunko/bookstoreapi/blob/master/put-book-structure.PNG?raw=true">
+</p>
+
+<p align="center">
+  <img alt="put-book-ok.png" src="https://github.com/thunko/bookstoreapi/blob/master/put-book-ok.PNG?raw=true">
 </p>
 
 **DELETE:**
 
 <p align="center">
-  <img alt="up-eu-west-1.png" src="https://user-images.githubusercontent.com/5018213/32912362-221f208a-cb0f-11e7-8a8c-2281926f3dd4.png">
+  <img alt="delete-book" src="https://github.com/thunko/bookstoreapi/blob/master/delete-book.PNG?raw=true">
 </p>
--->
+
+<p align="center">
+  <img alt="delete-book-ok" src="https://github.com/thunko/bookstoreapi/blob/master/delete-book-ok.PNG?raw=true">
+</p>
 
 ## References
 
